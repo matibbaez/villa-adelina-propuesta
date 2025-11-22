@@ -1,0 +1,126 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro'; 
+import Stats from '../components/Stats.astro'; 
+---
+
+<Layout title="Estudio Villa Adelina S.R.L. | Abogados">
+    
+    <Navbar />
+
+    <header class="relative pt-20 h-[80vh] min-h-[600px] flex items-center bg-gray-900 text-white">
+        <div class="absolute inset-0 opacity-30">
+            <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover grayscale" alt="Firma Legal" />
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12">
+            <div class="space-y-8 border-l-4 border-amber-700 pl-8">
+                <p class="text-amber-500 font-bold tracking-[0.2em] text-sm uppercase">
+                    Sociedad de Responsabilidad Limitada
+                </p>
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif font-bold leading-tight">
+                    Respaldo jurídico <br> integral.
+                </h1>
+                <p class="text-gray-400 text-lg font-sans font-light max-w-md leading-relaxed">
+                    Una estructura profesional diseñada para brindar soluciones legales complejas a empresas y particulares. Trayectoria y solidez en cada caso.
+                </p>
+                <div class="pt-4">
+                    <a href="#contacto" class="bg-amber-700 text-white px-8 py-4 text-sm font-bold uppercase tracking-widest hover:bg-amber-800 transition-colors inline-block">
+                        Consultar al Estudio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <Stats />
+
+    <section id="areas" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 border-b border-gray-300 pb-6 text-center md:text-left">
+                <h2 class="text-3xl md:text-4xl font-serif text-gray-900 font-bold">Áreas de Práctica</h2>
+                <a href="#contacto" class="text-amber-700 font-bold uppercase tracking-widest text-xs hover:text-gray-900 mt-4 md:mt-0 transition-colors">
+                    Ver todos los servicios &rarr;
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-x-16 gap-y-10">
+                
+                <div class="group cursor-pointer text-center md:text-left">
+                    <h3 class="text-xl md:text-2xl font-serif text-gray-900 group-hover:text-amber-700 transition-colors flex flex-col md:flex-row items-center md:justify-between border-b border-gray-200 pb-4 md:py-4 gap-2">
+                        Derecho Civil y Comercial
+                        <span class="opacity-0 group-hover:opacity-100 transition-opacity text-lg hidden md:block">↗</span>
+                    </h3>
+                    <p class="text-gray-500 mt-3 font-sans font-light leading-relaxed">
+                        Contratos, sociedades, ejecuciones y asesoramiento corporativo integral.
+                    </p>
+                </div>
+
+                <div class="group cursor-pointer text-center md:text-left">
+                    <h3 class="text-xl md:text-2xl font-serif text-gray-900 group-hover:text-amber-700 transition-colors flex flex-col md:flex-row items-center md:justify-between border-b border-gray-200 pb-4 md:py-4 gap-2">
+                        Derecho Laboral
+                        <span class="opacity-0 group-hover:opacity-100 transition-opacity text-lg hidden md:block">↗</span>
+                    </h3>
+                    <p class="text-gray-500 mt-3 font-sans font-light leading-relaxed">
+                        Defensa patronal y del trabajador. Despidos, ART e indemnizaciones.
+                    </p>
+                </div>
+
+                <div class="group cursor-pointer text-center md:text-left">
+                    <h3 class="text-xl md:text-2xl font-serif text-gray-900 group-hover:text-amber-700 transition-colors flex flex-col md:flex-row items-center md:justify-between border-b border-gray-200 pb-4 md:py-4 gap-2">
+                        Familia y Sucesiones
+                        <span class="opacity-0 group-hover:opacity-100 transition-opacity text-lg hidden md:block">↗</span>
+                    </h3>
+                    <p class="text-gray-500 mt-3 font-sans font-light leading-relaxed">
+                        Divorcios, partición de bienes, herencias y planificación sucesoria.
+                    </p>
+                </div>
+
+                <div class="group cursor-pointer text-center md:text-left">
+                    <h3 class="text-xl md:text-2xl font-serif text-gray-900 group-hover:text-amber-700 transition-colors flex flex-col md:flex-row items-center md:justify-between border-b border-gray-200 pb-4 md:py-4 gap-2">
+                        Derecho Administrativo
+                        <span class="opacity-0 group-hover:opacity-100 transition-opacity text-lg hidden md:block">↗</span>
+                    </h3>
+                    <p class="text-gray-500 mt-3 font-sans font-light leading-relaxed">
+                        Reclamos ante organismos públicos, jubilaciones y pensiones.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto" class="bg-gray-900 text-white py-20 font-sans font-light">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12">
+            
+            <div>
+                <h4 class="text-2xl font-serif mb-6">Estudio Villa Adelina S.R.L.</h4>
+                <p class="text-gray-400 mb-8 max-w-xs leading-relaxed">
+                    Excelencia profesional y compromiso ético en la defensa de sus intereses.
+                </p>
+                <div class="flex flex-col gap-4">
+                    <a href="https://wa.me/54911XXXXXXXX" class="text-white hover:text-amber-500 transition-colors flex items-center gap-3">
+                        <span class="w-2 h-2 bg-amber-500 rounded-full"></span>
+                        WhatsApp: +54 9 11 XXXX-XXXX
+                    </a>
+                    <a href="mailto:contacto@estudiova.com" class="text-white hover:text-amber-500 transition-colors flex items-center gap-3">
+                        <span class="w-2 h-2 bg-amber-500 rounded-full"></span>
+                        contacto@estudiova.com
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-gray-800 p-8">
+                <h5 class="text-amber-500 font-bold uppercase tracking-widest text-xs mb-4">Ubicación</h5>
+                <p class="text-xl font-serif mb-2">Villa Adelina, San Isidro</p>
+                <p class="text-gray-400 text-sm mb-6">Calle Falsa 123, Piso 1<br>Provincia de Buenos Aires</p>
+                <a href="#" class="text-white border-b border-white pb-1 hover:text-amber-500 hover:border-amber-500 transition-colors text-xs uppercase tracking-widest">
+                    Ver en Google Maps
+                </a>
+            </div>
+
+        </div>
+    </footer>
+
+</Layout>

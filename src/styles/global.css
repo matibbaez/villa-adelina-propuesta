@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  /* TIPOGRAFÍAS: Mantenemos la elegancia */
+  --font-serif: "Playfair Display", serif; 
+  --font-sans: "Lato", sans-serif;
+
+  /* PALETA "DRA. BOGGIO" */
+  
+  /* Color Principal: Bordeaux Profundo (Rose 900 de Tailwind ajustado) */
+  --color-navy-800: #881337; /* Para botones y acentos fuertes */
+  --color-navy-900: #4c0519; /* Para textos oscuros y fondos footer */
+  
+  /* Color Acento: Arena / Beige (Stone 200/300) */
+  --color-gold-500: #d6d3d1; /* Un gris cálido/arena para detalles finos */
+  --color-gold-600: #a8a29e; /* Un poco más oscuro para hover */
+}

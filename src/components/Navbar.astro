@@ -1,0 +1,117 @@
+---
+// src/components/Navbar.astro
+---
+
+<header class="fixed w-full z-50 font-serif shadow-sm">
+    
+    <div class="bg-gray-900 text-gray-300 text-[10px] tracking-[0.2em] uppercase py-2 border-b border-gray-800 relative z-50">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            
+            <span class="md:hidden font-bold text-white flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-amber-500 rounded-full animate-pulse"></span>
+                Lun a Vie, 9:00 - 17:00 hs
+            </span>
+
+            <div class="hidden md:flex gap-8 items-center opacity-80">
+                <span class="flex items-center gap-2 cursor-default">
+                    (011) 47XX-XXXX
+                </span>
+                <span class="flex items-center gap-2 cursor-default">
+                    Lun a Vie, 9:00 - 17:00 hs
+                </span>
+            </div>
+
+            <a href="mailto:contacto@estudiova.com" class="hover:text-white transition-colors flex items-center gap-2">
+                Soporte al Cliente
+            </a>
+        </div>
+    </div>
+
+    <nav class="bg-white relative z-40">
+        <div class="container mx-auto px-6 h-24 flex justify-between items-center">
+            
+            <a href="#" class="flex flex-col group">
+                <span class="text-2xl md:text-3xl font-bold text-gray-900 tracking-tighter group-hover:opacity-70 transition-opacity">
+                    VILLA ADELINA <span class="text-amber-700">SRL</span>
+                </span>
+                <span class="text-[10px] uppercase tracking-[0.3em] text-gray-500 mt-1">
+                    Firma Legal & Consultoría
+                </span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-10 text-xs font-bold text-gray-900 uppercase tracking-widest">
+                <a href="#estudio" class="hover:text-amber-700 transition-colors">El Estudio</a>
+                <a href="#areas" class="hover:text-amber-700 transition-colors">Áreas</a>
+                <a href="#contacto" class="hover:text-amber-700 transition-colors">Contacto</a>
+                
+                <a href="https://wa.me/54911XXXXXXXX" class="border border-gray-900 text-gray-900 px-6 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-gray-900 hover:text-white transition-colors">
+                    Solicitar Reunión
+                </a>
+            </div>
+
+            <button id="menu-toggle" class="md:hidden focus:outline-none w-10 h-10 relative flex flex-col justify-center items-center gap-1.5 group">
+                <span id="line-1" class="w-8 h-0.5 bg-gray-900 transition-all duration-300 ease-in-out transform origin-center"></span>
+                <span id="line-2" class="w-8 h-0.5 bg-gray-900 transition-all duration-300 ease-in-out"></span>
+                <span id="line-3" class="w-8 h-0.5 bg-gray-900 transition-all duration-300 ease-in-out transform origin-center"></span>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-2xl overflow-hidden transition-all duration-500 ease-in-out max-h-0 opacity-0">
+            <div class="flex flex-col p-8 space-y-6 text-center">
+                <a href="#estudio" class="mobile-link text-gray-900 font-bold uppercase tracking-widest text-sm py-2 border-b border-gray-50 hover:text-amber-700 transition-colors">El Estudio</a>
+                <a href="#areas" class="mobile-link text-gray-900 font-bold uppercase tracking-widest text-sm py-2 border-b border-gray-50 hover:text-amber-700 transition-colors">Áreas de Práctica</a>
+                <a href="#contacto" class="mobile-link text-gray-900 font-bold uppercase tracking-widest text-sm py-2 border-b border-gray-50 hover:text-amber-700 transition-colors">Contacto</a>
+                
+                <div class="pt-4">
+                    <a href="https://wa.me/54911XXXXXXXX" class="block w-full bg-gray-900 text-white px-6 py-4 text-xs font-bold uppercase tracking-widest hover:bg-amber-700 transition-colors">
+                        Contactar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<script>
+    const btn = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    
+    const line1 = document.getElementById('line-1');
+    const line2 = document.getElementById('line-2');
+    const line3 = document.getElementById('line-3');
+
+    const links = document.querySelectorAll('.mobile-link');
+
+    let isOpen = false;
+
+    function toggleMenu() {
+        if (!menu || !line1 || !line2 || !line3) return;
+
+        isOpen = !isOpen;
+        if (isOpen) {
+            menu.classList.remove('max-h-0', 'opacity-0');
+            menu.classList.add('max-h-screen', 'opacity-100');
+            
+            line1.classList.add('rotate-45', 'translate-y-[8px]');
+            line2.classList.add('opacity-0');
+            line3.classList.add('-rotate-45', '-translate-y-[8px]');
+        } else {
+            menu.classList.add('max-h-0', 'opacity-0');
+            menu.classList.remove('max-h-screen', 'opacity-100');
+
+            line1.classList.remove('rotate-45', 'translate-y-[8px]');
+            line2.classList.remove('opacity-0');
+            line3.classList.remove('-rotate-45', '-translate-y-[8px]');
+        }
+    }
+
+    if (btn) {
+        btn.addEventListener('click', toggleMenu);
+    }
+
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            if(isOpen) toggleMenu();
+        });
+    });
+</script>

@@ -1,0 +1,104 @@
+---
+// src/components/Stats.astro
+---
+
+<section id="stats-section" class="bg-white py-16 border-b border-gray-100">
+    <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-200 text-center">
+            
+            <div class="py-6 md:px-8 opacity-0 translate-y-4 transition-all duration-700 ease-out" id="stat-1">
+                <span class="block text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-2">
+                    <span class="counter" data-target="4.8">0</span><span class="text-2xl text-gray-400">/5</span>
+                </span>
+                <div class="flex justify-center gap-1 text-amber-500 text-xs mb-2">
+                    ★★★★★
+                </div>
+                <p class="text-xs uppercase tracking-widest text-gray-500 font-bold">Calificación en Google</p>
+            </div>
+
+            <div class="py-6 md:px-8 opacity-0 translate-y-4 transition-all duration-700 ease-out delay-200" id="stat-2">
+                <span class="block text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-2">
+                    +<span class="counter" data-target="20">0</span>
+                </span>
+                <p class="text-xs uppercase tracking-widest text-gray-500 font-bold">Años de Trayectoria</p>
+            </div>
+
+            <div class="py-6 md:px-8 opacity-0 translate-y-4 transition-all duration-700 ease-out delay-400" id="stat-3">
+                <span class="block text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-2">
+                    S.R.L.
+                </span>
+                <p class="text-xs uppercase tracking-widest text-gray-500 font-bold">Respaldo Societario</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const section = document.getElementById('stats-section');
+        const countersRaw = document.querySelectorAll('.counter'); // Obtenemos la lista cruda
+        
+        const statsItems = [
+            document.getElementById('stat-1'),
+            document.getElementById('stat-2'),
+            document.getElementById('stat-3')
+        ];
+
+        let started = false;
+
+        const startAnimation = () => {
+            if (started) return;
+            started = true;
+
+            // 1. Entrada Fade In Up
+            statsItems.forEach(item => {
+                if(item) {
+                    item.classList.remove('opacity-0', 'translate-y-4');
+                    item.classList.add('opacity-100', 'translate-y-0');
+                }
+            });
+
+            // 2. Conteo Numérico
+            countersRaw.forEach(c => {
+                // CORRECCIÓN AQUÍ: Le decimos a TS que esto es un Elemento HTML
+                const counter = c as HTMLElement;
+
+                const targetAttr = counter.getAttribute('data-target');
+                if (!targetAttr) return;
+
+                const target = +targetAttr;
+                const duration = 2000; 
+                const increment = target / (duration / 16);
+                
+                let current = 0;
+
+                const updateCounter = () => {
+                    current += increment;
+                    
+                    if (current < target) {
+                        // Si es float, mostramos decimal. Si no, entero.
+                        counter.innerText = Number.isInteger(target) 
+                            ? Math.ceil(current).toString()
+                            : current.toFixed(1);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.innerText = target.toString();
+                    }
+                };
+
+                updateCounter();
+            });
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    startAnimation();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        if (section) observer.observe(section);
+    });
+</script>
